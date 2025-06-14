@@ -63,6 +63,9 @@ CREATE TABLE empleado (
   FOREIGN KEY (area_codigo) REFERENCES area(codigo)
 );
 ```
+![image](https://github.com/user-attachments/assets/8ea2523f-785c-46c7-9d7b-38c0aca25d46)
+
+
 
 ## 🔐 Security
 
