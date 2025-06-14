@@ -33,6 +33,29 @@ spring.datasource.username=root
 spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
 
+## Script for creating the `aquariusdb` database
+
+Below is the script to create the `aquariusdb` database and its tables:
+
+```sql
+CREATE DATABASE IF NOT EXISTS aquariusdb;
+USE aquariusdb;
+
+CREATE TABLE area (
+  codigo INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE empleado (
+  codigo INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  correo VARCHAR(100),
+  celular VARCHAR(15),
+  telefono VARCHAR(15),
+  area_codigo INT,
+  FOREIGN KEY (area_codigo) REFERENCES area(codigo)
+);
+
 ## Security
 
 This backend uses OAuth2 and JWT for authentication.
