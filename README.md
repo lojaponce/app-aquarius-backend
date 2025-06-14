@@ -1,10 +1,11 @@
+
 # AppAquarius - Backend
 
-This project was built using [Spring Boot](https://spring.io/projects/spring-boot) and [Java 17](https://openjdk.org/projects/jdk/17/).
+This is the backend service for **AppAquarius**, developed using [Spring Boot](https://spring.io/projects/spring-boot) and [Java 17](https://openjdk.org/projects/jdk/17/). It provides a secure RESTful API for managing employees and their assigned areas.
 
-## Running the application locally
+## 🚀 Running the Application Locally
 
-To start the backend server locally, run the following commands:
+To run the backend server locally, use the following commands:
 
 ```bash
 # Compile the project
@@ -14,28 +15,34 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-Once the server is running, the API will be available at:
+Once the application is running, the backend will be available at:
 
+```
 http://localhost:8080/
+```
 
-You can use tools like Postman or curl to test the API endpoints.
+You can test the API using tools like [Postman](https://www.postman.com/) or `curl`.
 
-## Database configuration
+## 🛠️ Database Configuration
 
-The application uses a MySQL (or compatible) database. Configure your connection settings in:
+This application uses a MySQL-compatible database. Configure your connection settings in:
 
+```
 src/main/resources/application.properties
+```
 
-Example:
+Example configuration:
 
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/aquariusdb
 spring.datasource.username=root
 spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
+```
 
-## Script for creating the `aquariusdb` database
+## 🗃️ Database Initialization Script
 
-Below is the script to create the `aquariusdb` database and its tables:
+Use the following SQL script to create the `aquariusdb` database and its schema:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS aquariusdb;
@@ -55,30 +62,29 @@ CREATE TABLE empleado (
   area_codigo INT,
   FOREIGN KEY (area_codigo) REFERENCES area(codigo)
 );
+```
 
-## Security
+## 🔐 Security
 
-This backend uses OAuth2 and JWT for authentication.
+The backend is secured using **OAuth2** and **JWT (JSON Web Tokens)**:
 
-- Public routes: /api/**
-- Secured routes require a valid token.
+- Public routes: `/api/**`
+- All other routes require a valid Bearer token in the `Authorization` header.
 
-## API endpoints
+## 📡 API Endpoints
 
-Here are some core endpoints:
+| Method | Endpoint               | Description                |
+|--------|------------------------|----------------------------|
+| GET    | `/api/empleados`       | List all employees         |
+| GET    | `/api/empleados/{id}`  | Get a specific employee    |
+| POST   | `/api/empleados`       | Create a new employee      |
+| PUT    | `/api/empleados/{id}`  | Update an existing employee|
+| DELETE | `/api/empleados/{id}`  | Delete an employee         |
+| GET    | `/api/areas`           | List all areas             |
 
-| Method | Endpoint               | Description              |
-|--------|------------------------|--------------------------|
-| GET    | /api/empleados         | List all employees       |
-| GET    | /api/empleados/{id}    | Get a specific employee  |
-| POST   | /api/empleados         | Create a new employee    |
-| PUT    | /api/empleados/{id}    | Update employee          |
-| DELETE | /api/empleados/{id}    | Delete employee          |
-| GET    | /api/areas             | List all areas           |
+## 🧱 Building the Project
 
-## Building the project
-
-To generate the JAR file for deployment, run:
+To compile the project and generate a JAR file for deployment, run:
 
 ```bash
 mvn clean package
@@ -92,20 +98,20 @@ To run the JAR:
 java -jar target/empleado-api-0.0.1-SNAPSHOT.jar
 ```
 
-## Testing
+## 🧪 Running Tests
 
-You can run unit and integration tests using:
+Execute unit and integration tests using:
 
 ```bash
 mvn test
 ```
 
-## Additional Resources
+## 📚 Additional Resources
 
-- Spring Boot Documentation: https://docs.spring.io/spring-boot/docs/current/reference/html/
-- JWT Introduction: https://jwt.io/introduction
-- OAuth2 Overview: https://oauth.net/2/
+- [Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [JWT Introduction](https://jwt.io/introduction)
+- [OAuth2 Overview](https://oauth.net/2/)
 
 ---
 
-Developed as part of the AppAquarius full-stack system.
+💻 Developed as part of the **AppAquarius** full-stack web application.
