@@ -117,4 +117,14 @@ mvn test
 
 ---
 
+## 📷 Project images
+### Console Spring On
+![image](https://github.com/user-attachments/assets/3ab96a97-8031-4ccc-9935-d9c00e888ea6)
+
+### POST Postman to http://localhost:8080/api/auth/login to get the token
+![image](https://github.com/user-attachments/assets/22667589-0e4b-42a5-be2b-3d3eb2a504b5)
+
+### GET Postman to http://localhost:8080/api/areas with Authorization
+![image](https://github.com/user-attachments/assets/88534de9-f5ca-4a3c-a792-f7cdd9b9a14f)
+
 💻 Developed as part of the **AppAquarius** full-stack web application.
